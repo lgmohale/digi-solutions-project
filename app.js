@@ -1,9 +1,11 @@
 const express = require('express');
 const bodyParser = require("body-parser");
 const path = require('path');
+var cors = require('cors')
+
 
 var customers = require('./routes/customers'); 
-var universities = require('./routes/universities.js'); 
+var universities = require('./routes/universities'); 
 var users = require('./routes/users');
 var routes = require('./routes');
 var app = express();
@@ -24,15 +26,18 @@ app.get('/customers/delete/:id', customers.delete);
 app.get('/customers/edit/:id', customers.edit);
 app.post('/customers/edit/:id', customers.update);
 
-app.get('/universities', universities.list);
-app.get('/universities/add', universities.add);
-app.post('/universities/add', universities.save);
-app.get('/universities/delete/:id', universities.delete);
-app.get('/universities/edit/:id', universities.edit);
-app.post('/universities/edit/:id', universities.update);
-
+//app.get('/universities', universities.list);
+// app.get('/universities/add', universities.add);
+// app.post('/universities/add', universities.save);
+// app.get('/universities/delete/:id', universities.delete);
+// app.get('/universities/edit/:id', universities.edit);
+// app.post('/universities/edit/:id', universities.update);
+app.use(cors()) 
 //login and signup router for users
 app.use('/', users);
+
+//universitiies routes
+app.use('/', universities);
 
 app.listen(4000, function () {
     console.log('Server is running.. on Port 4000');
