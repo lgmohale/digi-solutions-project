@@ -26,13 +26,8 @@ app.get('/customers/delete/:id', customers.delete);
 app.get('/customers/edit/:id', customers.edit);
 app.post('/customers/edit/:id', customers.update);
 
-//app.get('/universities', universities.list);
-// app.get('/universities/add', universities.add);
-// app.post('/universities/add', universities.save);
-// app.get('/universities/delete/:id', universities.delete);
-// app.get('/universities/edit/:id', universities.edit);
-// app.post('/universities/edit/:id', universities.update);
 app.use(cors()) 
+
 //login and signup router for users
 app.use('/', users);
 

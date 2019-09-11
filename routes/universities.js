@@ -6,16 +6,17 @@ pool.connect();
 
 //list of universities
 router.get('/universities', (req, res) =>{
-    pool.query('SELECT * FROM universities', (err, result) =>{
+    pool.query('SELECT * FROM universities limit 10', (err, result) =>{
         if(err){
             res.status(400).send(err);
             console.log('Oops, could not list universities', err);
         }
         else{
-            res.send(result)
-            console.log(result)
+            res.send(result.rows)
+            //console.log(result.rows)
         }
     });
+
 });
 
 //Adding universities
