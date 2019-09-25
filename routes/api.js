@@ -34,7 +34,7 @@ router.get('/getCourses', (req, res) =>{
 //Get all the study field data(department)
 router.get('/getDepartment', (req, res) =>{
 
-    pool.query('SELECT DISTINCT studyField_name FROM userinformation', (err, result) =>{
+    pool.query('SELECT * FROM studyfield', (err, result) =>{
         if(err){
             res.status(400).send(err);
             console.log('Oops, could not load departments', err)
@@ -43,6 +43,27 @@ router.get('/getDepartment', (req, res) =>{
         }
     });
 });
+
+//Search query
+router.get('/search', (req, res) =>{
+
+    const searchValue = req.body.searchValue;
+    
+    pool.query('SELECT * FROM course WHERE aps > $1', [searchValue], (err, result) =>{
+        if(err){
+            res.status(400).send(err);
+            console.log('Oops, could not load departments', err)
+        }else{
+            if(result.rowCount == 0){
+                res.json({
+                    message: 'No Match'
+                });
+            }else{
+                res.send(result.rows)
+            }
+        }
+    })
+})
 
 //Registering new User to the database
 router.post('/registration', (req, res) =>{
