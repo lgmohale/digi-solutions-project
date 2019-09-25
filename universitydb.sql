@@ -62,7 +62,7 @@ insert into course (course_name, score) values ('ACCOUNTING (CA)', '33');
 insert into course (course_name, score) values ('CHEMICAL ENGINEERING', '30');
 
 --departments
-insert into department (department_name) values ('Department of Business Management');
+insert into department (department_name) values ('Business Management');
 insert into department (department_name) values ('Finance and Investment Management');
 insert into department (department_name) values ('Industrial Psychology and People Management');
 insert into department (department_name) values ('Transport and Supply Chain Management');
@@ -87,7 +87,7 @@ insert into department (department_name) values ('Childhood Education');
 insert into department (department_name) values ('Education and Curriculum Studies');
 insert into department (department_name) values ('Education Leadership and Management');
 insert into department (department_name) values ('Educational Psychology');
-insert into department (department_name) values (' Science and Technology Education(SCITECHED)');
+insert into department (department_name) values ('Science and Technology Education(SCITECHED)');
 insert into department (department_name) values ('Electrical Engineering and Electronic Engineering');
 insert into department (department_name) values ('Civil Engineering and the Built Environment');
 insert into department (department_name) values ('Mechanical and Industrial Engineering');
